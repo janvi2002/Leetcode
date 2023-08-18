@@ -1,15 +1,16 @@
 class Solution:
     def removeCoveredIntervals(self, intervals: List[List[int]]) -> int:
-        intervals.sort(key=lambda x:(x[0],-x[1]))
-        l=-1
-        r=-1
+#     otpimizing using sorting O(nlogn)
+        intervals.sort(key=lambda x:(x[0],-x[1]))   #here we do ascending sorting for first element and descending sorting on second to prevent error
+        left=-1
+        right=-1
         res=0
         for i in intervals:
-            if i[0]>=l and i[1]<=r:
+            if i[0]>=left and i[1]<=right:
                 continue
             res+=1
-            l=i[0]
-            r=i[1]
+            left=i[0]
+            right=i[1]
         return res
 #         brute force solution O(n^2)
         # n=len(intervals)
@@ -20,7 +21,7 @@ class Solution:
         #             c+=1
         #             break
         # return n-c
-#     otpimizing using sorting O(nlogn)
+
 
     
     
