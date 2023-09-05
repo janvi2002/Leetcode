@@ -11,16 +11,18 @@ class Solution:
         dummy.next=head
         fast=dummy
         slow=dummy
+#         move the fast pointer till the given n
         while n:
             fast=fast.next
             n-=1
+#      edge contiditon if it gives the n = length of linked list
         if fast.next==None:
             return head.next
         else:
+#      move the both pointer one by one untill fast reaches to the Null
             while fast and fast.next:
                 fast=fast.next
                 slow=slow.next
-                
         slow.next=slow.next.next
         return dummy.next
             
